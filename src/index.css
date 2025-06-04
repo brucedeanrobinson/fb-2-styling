@@ -1,3 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-gray-default: #D8D8D8;
+  --color-gray-light: #7D7D7D;
+  --color-green-dark: #359845;
+  --color-green-light: #E2FFE5;
+
+  /* --color-button-default: ;
+  --color-button-active: ; */
+}
