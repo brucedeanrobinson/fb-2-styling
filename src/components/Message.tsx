@@ -22,8 +22,10 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
   const messageReceiverStyle = "bg-gray-default"
   const imageStyle = "aspect-square w-12 h-12 rounded-full"
 
+  //todo change author to not depend on hardcoded name, but sender, with a name....
+
   const getBorderRadius = () => {
-    const isMe = messageData.author === "me"
+    const isMe = messageData.author === "Bruce"
     
     if (isFirstInGroup && isLastInGroup) {
       return "rounded-2xl"
@@ -38,23 +40,26 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
 
   return (
     <div
-      className={clsx("flex gap-2 w-[69%]", messageData.author === "me" ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
+      className={clsx("flex gap-2 w-[69%]", messageData.author === "Bruce" ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
     >
-      {/* TODO author name. seems tricky, i know i need to use some sort of inline for the name to appear as if it's adjacent to a preceeding other authored message, but like... */}
-
       {/* Author image */}
       {showImage && messageData.authorImage ? (
-        <img
-          src={messageData.authorImage}
-          alt={messageData.author}
-          className={clsx(imageStyle, "self-start")}
-        />
+        <div className="relative w-12 h-12 flex-shrink-0">
+          <div className="absolute -top-6 left-0 text-md text-gray-500">
+            {messageData.author.substring(0, 2)}{messageData.author.length > 2 ? '...' : ''}
+          </div>
+          <img
+            src={messageData.authorImage}
+            alt={messageData.author}
+            className={imageStyle}
+          />
+        </div>
       ) : (
-        <div className="w-12 h-12 flex-shrink-0" /> // invisible space
+        <div className="w-12 h-12 flex-shrink-0" />
       )}
-
+  
       {/* Message */}
-      <div className={clsx(messageStyle, getBorderRadius(), messageData.author === 'me' ? messageAuthorStyle : messageReceiverStyle)}>
+      <div className={clsx(messageStyle, getBorderRadius(), messageData.author === 'Bruce' ? messageAuthorStyle : messageReceiverStyle)}>
         <div className="flex-1">
           <div>{messageData.message}</div>
         </div>
