@@ -1,0 +1,13 @@
+[
+  {
+    "id": 0,
+    "author": "Bruce",
+    "authorImage": "https://randomuser.me/api/portraits/men/1.jpg",
+    "groupName": "New Paradigm Navigators",
+    "timestamp": "3 min ago",
+    "postImage": "https://randomuser.me/api/portraits/men/1.jpg",
+    "description": "Post description",
+    "likes": 21,
+    "comments": 4
+  }
+]
