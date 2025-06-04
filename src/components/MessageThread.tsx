@@ -18,16 +18,16 @@ function MessageThread({ messages }: MessageThreadProps) {
         const prevMessage = messages[index - 1]
         const nextMessage = messages[index + 1]
         
-        const isFirstInGroup = !prevMessage || prevMessage.sender !== message.sender
-        const isLastInGroup = !nextMessage || nextMessage.sender !== message.sender
+        const isFirst = !prevMessage || prevMessage.sender !== message.sender
+        const isLast = !nextMessage || nextMessage.sender !== message.sender
         
         return (
           <Message 
             key={message.id}
             messageData={message}
-            showImage={isFirstInGroup}
-            isFirstInGroup={isFirstInGroup}
-            isLastInGroup={isLastInGroup}
+            showImage={isFirst}
+            isFirstInGroup={isFirst}
+            isLastInGroup={isLast}
           />
         )
       })}
