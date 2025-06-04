@@ -38,19 +38,19 @@ function App() {
        className="flex flex-row overflow-x-auto overflow-y-hidden h-screen gap-x-48 px-8"
       >
         {/* Task */}
-        <div className="min-w-[50vw] h-screen flex flex-col gap-2 justify-center">
+        <div className="min-w-sm h-screen flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Task</h1>
           <Task taskData={singleTaskData} toggleChecked={() => toggleSingleTask()} />
         </div>
 
         {/* Task List */}
-        <div className="min-w-[50vw] h-screen flex flex-col gap-2 justify-center">
+        <div className="min-w-sm h-screen flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Task List</h1>
           <TaskList tasks={taskListData} toggleTask={toggleListTask} />
         </div>
 
         {/* Message Thread*/}
-        <div className="min-w-[90vw] h-screen flex flex-col gap-2 justify-center">
+        <div className="min-w-3xl h-screen flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Message Thread</h1>
           <MessageThread messages={messagesData} />
         </div>
