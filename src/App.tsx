@@ -5,7 +5,8 @@ import TaskList from './components/TaskList'
 import tasksData from './data/tasks.json'
 
 function App() {
-  const [taskData, setTaskData] = useState<TaskData[]>(tasksData)
+  const [singleTaskData, setSingleTaskData] = useState<TaskData>(tasksData[0])
+  const [taskListData, setTaskListData] = useState<TaskData[]>(tasksData)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const handleWheel = (e: React.WheelEvent) => {
@@ -15,8 +16,12 @@ function App() {
     }
   }
 
-  const toggleTask = (id: number) => {
-    setTaskData(taskData.map(task => 
+  const toggleSingleTask = () => {
+    setSingleTaskData({ ...singleTaskData, checked: !singleTaskData.checked })
+  }
+  
+  const toggleListTask = (id: number) => {
+    setTaskListData(taskListData.map(task => 
       task.id === id ? { ...task, checked: !task.checked } : task
     ))
   }
@@ -29,14 +34,14 @@ function App() {
        className="flex flex-row overflow-x-auto overflow-y-hidden h-screen gap-x-16 px-8"
       >
         {/* Task */}
-        <div className=" h-screen mx-auto flex flex-col gap-2 justify-center">
+        <div className="w-[600px] h-screen mx-auto flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Task</h1>
-          <Task taskData={taskData[0]} toggleChecked={() => toggleTask(taskData[0].id)} />
+          <Task taskData={singleTaskData} toggleChecked={() => toggleSingleTask()} />
         </div>
         {/* Task List */}
-        <div className="w-1/2 h-screen mx-auto flex flex-col gap-2 justify-center">
+        <div className="w-[600px] h-screen mx-auto flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Task List</h1>
-          <TaskList tasks={taskData} toggleTask={toggleTask} />
+          <TaskList tasks={taskListData} toggleTask={toggleListTask} />
         </div>
       </div>
     </div>
