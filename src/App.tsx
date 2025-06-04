@@ -1,10 +1,11 @@
 import './App.css'
 import { useState, useRef } from 'react'
 import Task, { type TaskData } from './components/Task'
+import TaskList from './components/TaskList'
 import tasksData from './data/tasks.json'
 
 function App() {
-  const [taskData, setTaskData] = useState<TaskData>(tasksData[0])
+  const [taskData, setTaskData] = useState<TaskData[]>(tasksData)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   const handleWheel = (e: React.WheelEvent) => {
@@ -14,8 +15,10 @@ function App() {
     }
   }
 
-  const toggleTask = () => {
-    setTaskData({ ... taskData, checked: !taskData.checked})
+  const toggleTask = (id: number) => {
+    setTaskData(taskData.map(task => 
+      task.id === id ? { ...task, checked: !task.checked } : task
+    ))
   }
 
   return (
@@ -28,13 +31,12 @@ function App() {
         {/* Task */}
         <div className=" h-screen mx-auto flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Task</h1>
-          <Task taskData={taskData} toggleChecked={toggleTask} />
+          <Task taskData={taskData[0]} toggleChecked={() => toggleTask(taskData[0].id)} />
         </div>
         {/* Task List */}
         <div className="w-1/2 h-screen mx-auto flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Task List</h1>
-          {/* TODO task list */}
-          <Task taskData={taskData} toggleChecked={toggleTask} />
+          <TaskList tasks={taskData} toggleTask={toggleTask} />
         </div>
       </div>
     </div>

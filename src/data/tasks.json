@@ -4,5 +4,23 @@
     "name": "Sweep the Kitchen",
     "description": "Get under the cabinets, do a good job",
     "checked": false
+  },
+  {
+    "id": 1,
+    "name": "Take Out Trash",
+    "description": "Empty all bins and replace liners",
+    "checked": true
+  },
+  {
+    "id": 2,
+    "name": "Water Plants",
+    "description": "Check soil moisture first, don't overwater",
+    "checked": false
+  },
+  {
+    "id": 3,
+    "name": "Do Laundry",
+    "description": "Separate colors, use cold water setting",
+    "checked": false
   }
 ]
