@@ -25,7 +25,7 @@ function MessageThread({ messages }: MessageThreadProps) {
           <Message 
             key={message.id}
             messageData={message}
-            showImage={isLastInGroup}
+            showImage={isFirstInGroup}
             isFirstInGroup={isFirstInGroup}
             isLastInGroup={isLastInGroup}
           />

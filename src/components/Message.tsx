@@ -40,6 +40,8 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
     <div
       className={clsx("flex gap-2 w-[69%]", messageData.author === "me" ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
     >
+      {/* TODO author name. seems tricky, i know i need to use some sort of inline for the name to appear as if it's adjacent to a preceeding other authored message, but like... */}
+
       {/* Author image */}
       {showImage && messageData.authorImage ? (
         <img
