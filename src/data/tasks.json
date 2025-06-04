@@ -1,26 +1,26 @@
 [
   {
     "id": 0,
-    "name": "Sweep the Kitchen",
-    "description": "Get under the cabinets, do a good job",
-    "checked": false
-  },
-  {
-    "id": 1,
-    "name": "Take Out Trash",
-    "description": "Empty all bins and replace liners",
+    "name": "Refine Presentation Outline",
+    "description": "Finalize the 8-slide structure, ensuring each slide is beginner-friendly, avoids crypto jargon, and ties to the New Earth theme. Focus on clear storytelling with mycelium analogies and Gitcoin examples.",
     "checked": true
   },
   {
+    "id": 1,
+    "name": "Create Visuals for Slides",
+    "description": "Design simple, nature-inspired visuals (e.g., mycelium networks, community projects) for each slide. Include diagrams for Gitcoin funding flow and local-to-global nodes. Use vibrant images to inspire.",
+    "checked": false
+  },
+  {
     "id": 2,
-    "name": "Water Plants",
-    "description": "Check soil moisture first, don't overwater",
+    "name": "Practice Delivery",
+    "description": "Rehearse the 15-minute presentation to ensure a warm, accessible tone. Time it to leave 5-10 minutes for Q&A. Practice explaining ‘spiritual science’ and Web3 for newcomers.",
     "checked": false
   },
   {
     "id": 3,
-    "name": "Do Laundry",
-    "description": "Separate colors, use cold water setting",
+    "name": "Prepare Q&A Responses",
+    "description": "Draft answers for potential audience questions (e.g., ‘What is Web3?’ or ‘How does mycelium inspire tech?’). Include a brief acknowledgment of crypto’s challenges (e.g., tech access) to build trust.",
     "checked": false
   }
 ]
