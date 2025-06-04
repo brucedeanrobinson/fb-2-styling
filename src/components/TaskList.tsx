@@ -8,7 +8,7 @@ type TaskListProps = {
 function TaskList({ tasks, toggleTask }: TaskListProps) {
   return (
     <div className="flex flex-col gap-4 p-4">
-      {tasks.map(task => (
+      {tasks.sort((a, b) => Number(b.checked) - Number(a.checked)).map(task => (
         <Task 
           key={task.id}
           taskData={task} 
