@@ -17,7 +17,7 @@ type MessageProps = {
 function Message({ messageData, showImage = true, isFirstInGroup = true, isLastInGroup = true }: MessageProps) {
 
   //todo "border-radius dependent on next-message"
-  const messageStyle = "w-[800px] min-h-[69px] rounded-2xl flex flex-row items-center gap-3 p-4 px-4"
+  const messageStyle = "w-[800px] min-h-[69px] flex flex-row items-center gap-3 p-4 px-4"
   const messageAuthorStyle = "bg-blue-message"
   const messageReceiverStyle = "bg-gray-default"
   const imageStyle = "aspect-square w-12 h-12 rounded-full"
@@ -38,21 +38,21 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
 
   return (
     <div
-      className={clsx("flex items-end gap-2 w-[69%]", messageData.author === "me" ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
+      className={clsx("flex gap-2 w-[69%]", messageData.author === "me" ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
     >
       {/* Author image */}
       {showImage && messageData.authorImage ? (
         <img
           src={messageData.authorImage}
           alt={messageData.author}
-          className={clsx(imageStyle, getBorderRadius())}
+          className={clsx(imageStyle, "self-start")}
         />
       ) : (
         <div className="w-12 h-12 flex-shrink-0" /> // invisible space
       )}
 
       {/* Message */}
-      <div className={clsx(messageStyle, messageData.author === 'me' ? messageAuthorStyle : messageReceiverStyle)}>
+      <div className={clsx(messageStyle, getBorderRadius(), messageData.author === 'me' ? messageAuthorStyle : messageReceiverStyle)}>
         <div className="flex-1">
           <div>{messageData.message}</div>
         </div>
