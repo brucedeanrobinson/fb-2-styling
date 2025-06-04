@@ -18,8 +18,8 @@ function MessageThread({ messages }: MessageThreadProps) {
         const prevMessage = messages[index - 1]
         const nextMessage = messages[index + 1]
         
-        const isFirstInGroup = !prevMessage || prevMessage.author !== message.author
-        const isLastInGroup = !nextMessage || nextMessage.author !== message.author
+        const isFirstInGroup = !prevMessage || prevMessage.sender !== message.sender
+        const isLastInGroup = !nextMessage || nextMessage.sender !== message.sender
         
         return (
           <Message 

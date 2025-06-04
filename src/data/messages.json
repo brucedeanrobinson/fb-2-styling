@@ -3,24 +3,28 @@
     "id": 0,
     "author": "Bruce",
     "authorImage": "https://randomuser.me/api/portraits/men/1.jpg",
-    "message": "Just finalized my presentation for the Symposium 3.0 (SSSS) next week, and I'm so pumped! It's all about building a New Earth—reimagining how we live with systems that are regenerative, not extractive. The event's theme is inspiring, celebrating innovators who are already creating a more connected, equitable world."
+    "message": "Just finalized my presentation for the Symposium 3.0 (SSSS) next week, and I'm so pumped! It's all about building a New Earth—reimagining how we live with systems that are regenerative, not extractive. The event's theme is inspiring, celebrating innovators who are already creating a more connected, equitable world.",
+    "sender": true
   },
   {
     "id": 1,
     "author": "Bruce",
     "authorImage": "https://randomuser.me/api/portraits/men/1.jpg",
-    "message": "My talk dives into how Web3 tech, inspired by nature's mycelium networks, can fund projects for a flourishing future. I'm drawing from Greenpilled and MycoFi to show how tools like Gitcoin Grants empower communities to support things like eco-farming or open education. It's tech meets spiritual science for a better world!"
+    "message": "My talk dives into how Web3 tech, inspired by nature's mycelium networks, can fund projects for a flourishing future. I'm drawing from Greenpilled and MycoFi to show how tools like Gitcoin Grants empower communities to support things like eco-farming or open education. It's tech meets spiritual science for a better world!",
+    "sender": true
   },
   {
     "id": 2,
     "author": "Aeva",
     "authorImage": "https://randomuser.me/api/portraits/women/1.jpg",
-    "message": "I'm intrigued by the 'spiritual science' part—what do you mean by that?"
+    "message": "I'm intrigued by the 'spiritual science' part—what do you mean by that?",
+    "sender": false
   },
   {
     "id": 3,
     "author": "Bruce",
     "authorImage": "https://randomuser.me/api/portraits/men/1.jpg",
-    "message": "Thanks, Aeva! Spiritual science is about blending the tangible and intangible—using insights from consciousness, metaphysics, and nature's wisdom to guide practical solutions. Like, mycelium shows us how to share resources naturally; I'm applying that to tech to create systems that uplift everyone, aligning with the cosmos' flow."
+    "message": "Thanks, Aeva! Spiritual science is about blending the tangible and intangible—using insights from consciousness, metaphysics, and nature's wisdom to guide practical solutions. Like, mycelium shows us how to share resources naturally; I'm applying that to tech to create systems that uplift everyone, aligning with the cosmos' flow.",
+    "sender": true
   }
 ]

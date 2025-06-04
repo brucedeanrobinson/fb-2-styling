@@ -5,6 +5,7 @@ export type MessageData = {
   author: string,
   authorImage?: string,
   message: string,
+  sender: boolean
 }
 
 type MessageProps = {
@@ -22,10 +23,8 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
   const messageReceiverStyle = "bg-gray-default"
   const imageStyle = "aspect-square w-12 h-12 rounded-full"
 
-  //todo change author to not depend on hardcoded name, but sender, with a name....
-
   const getBorderRadius = () => {
-    const isMe = messageData.author === "Bruce"
+    const isMe = messageData.sender
     
     if (isFirstInGroup && isLastInGroup) {
       return "rounded-2xl"
@@ -40,12 +39,12 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
 
   return (
     <div
-      className={clsx("flex gap-2 w-[69%]", messageData.author === "Bruce" ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
+      className={clsx("flex gap-2 w-[69%]", messageData.sender ? 'justify-end flex-row-reverse ml-auto': 'justify-start mr-auto')}
     >
       {/* Author image */}
       {showImage && messageData.authorImage ? (
         <div className="relative w-12 h-12 flex-shrink-0">
-          <div className="absolute -top-6 left-0 text-md text-gray-500">
+          <div className="absolute -top-6 left-0 text-gray-500">
             {messageData.author.substring(0, 2)}{messageData.author.length > 2 ? '...' : ''}
           </div>
           <img
@@ -59,7 +58,7 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
       )}
   
       {/* Message */}
-      <div className={clsx(messageStyle, getBorderRadius(), messageData.author === 'Bruce' ? messageAuthorStyle : messageReceiverStyle)}>
+      <div className={clsx(messageStyle, getBorderRadius(), messageData.sender ? messageAuthorStyle : messageReceiverStyle)}>
         <div className="flex-1">
           <div>{messageData.message}</div>
         </div>
