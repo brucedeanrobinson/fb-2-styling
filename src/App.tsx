@@ -1,20 +1,48 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Task, { type TaskData } from './components/Task'
+import TaskList from './components/TaskList'
 import tasksData from './data/tasks.json'
 
 function App() {
-  const [taskData, setTaskData] = useState<TaskData>(tasksData[0])
+  const [singleTaskData, setSingleTaskData] = useState<TaskData>(tasksData[0])
+  const [taskListData, setTaskListData] = useState<TaskData[]>(tasksData)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
-  const toggleTask = () => {
-    setTaskData({ ... taskData, checked: !taskData.checked})
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault()
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += e.deltaY
+    }
+  }
+
+  const toggleSingleTask = () => {
+    setSingleTaskData({ ...singleTaskData, checked: !singleTaskData.checked })
+  }
+  
+  const toggleListTask = (id: number) => {
+    setTaskListData(taskListData.map(task => 
+      task.id === id ? { ...task, checked: !task.checked } : task
+    ))
   }
 
   return (
-    <div className='font-[Inter]'>
-      <div className="w-1/2 h-screen mx-auto flex flex-col gap-2 justify-center">
-        <h1 className="text-5xl mb-4">Task</h1>
-        <Task taskData={taskData} toggleChecked={toggleTask} />
+    <div className='font-[Inter] h-screen flex flex-col fixed inset-0'>
+      <div 
+       ref={scrollRef}
+       onWheel={handleWheel}
+       className="flex flex-row overflow-x-auto overflow-y-hidden h-screen gap-x-16 px-8"
+      >
+        {/* Task */}
+        <div className="w-[600px] h-screen mx-auto flex flex-col gap-2 justify-center">
+          <h1 className="text-5xl mb-4">Task</h1>
+          <Task taskData={singleTaskData} toggleChecked={() => toggleSingleTask()} />
+        </div>
+        {/* Task List */}
+        <div className="w-[600px] h-screen mx-auto flex flex-col gap-2 justify-center">
+          <h1 className="text-5xl mb-4">Task List</h1>
+          <TaskList tasks={taskListData} toggleTask={toggleListTask} />
+        </div>
       </div>
     </div>
   )
