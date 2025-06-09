@@ -8,6 +8,9 @@ import tasksData from './data/tasks.json'
 import MessageThread from './components/MessageThread'
 import messagesData from './data/messages.json'
 
+import Post from './components/Post'
+import postsData from './data/posts.json'
+
 function App() {
   const [singleTaskData, setSingleTaskData] = useState<TaskData>(tasksData[0])
   const [taskListData, setTaskListData] = useState<TaskData[]>(tasksData)
@@ -49,10 +52,16 @@ function App() {
           <TaskList tasks={taskListData} toggleTask={toggleListTask} />
         </div>
 
-        {/* Message Thread*/}
+        {/* Message Thread */}
         <div className="min-w-3xl h-screen flex flex-col gap-2 justify-center">
           <h1 className="text-5xl mb-4">Message Thread</h1>
           <MessageThread messages={messagesData} />
+        </div>
+
+        {/* Post */}
+        <div className="min-w-sm h-screen flex flex-col gap-2 justify-center">
+          <h1 className="text-5xl mb-4">Post</h1>
+          <Post postData={postsData[0]} />
         </div>
       </div>
     </div>

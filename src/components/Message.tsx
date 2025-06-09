@@ -44,7 +44,7 @@ function Message({ messageData, showImage = true, isFirstInGroup = true, isLastI
       {/* Author image */}
       {showImage && messageData.authorImage ? (
         <div className="relative w-12 h-12 flex-shrink-0">
-          <div className="absolute -top-6 left-0 text-gray-500">
+          <div className="absolute -top-6 left-0 text-gray-light">
             {messageData.author.substring(0, 2)}{messageData.author.length > 2 ? '...' : ''}
           </div>
           <img
